@@ -1,12 +1,18 @@
 <?php
 
-/**
- * @param string $message is a message to display
- */
-function display(string $message): void { echo $message; }
+class Calculator
+{
+    /**
+     * @param string $message is a message to display
+     */
+    static function display(string $message): void
+    {
+        echo "<h1>" . $message . "</h1>";
+    }
+}
 
 if (!empty($_POST)) $numberDiceToRoll = $_POST[0];
-//$numberDiceToRoll = 10; //TODO: Only for debugging!!! Comment this line!!!
+$numberDiceToRoll = 10; //TODO: Only for debugging!!! Comment this line!!!
 
 //b) The PHP Script checks for a valid user input between 1 and 1000.
 $minNumberDiceToRoll = 1;
@@ -18,15 +24,13 @@ if (($numberDiceToRoll < $minNumberDiceToRoll) || ($numberDiceToRoll > $maxNumbe
 
 //c) The entered value should be displayed.
 $message = "
-     <h1>
         ENTERED VALUE: "
     . $numberDiceToRoll .
     "
         ---------------------------------------------------
         ---------------------------------------------------
-     </h1>
          ";
-display($message);
+Calculator::display($message);
 
 //d) The result of each roll should be displayed.
 $minDiceNumber = 1;
@@ -39,7 +43,7 @@ for ($index = 0; $index < $numberDiceToRoll; $index++) {
             ---------------------------------------------------
          </h1>
          ";
-    display($message);
+    Calculator::display($message);
 }
 
 //e) At the end, the number of times a six was rolled should also be displayed like this:
@@ -60,7 +64,7 @@ $message = "<h1>
               We roll the dice " . $numberDiceToRoll . " times
          </h1>
           ";
-display($message);
+Calculator::display($message);
 
 for ($index = 0; $index < $numberDiceToRoll; $index++) {
     // Example: 1. You rolled a 2
@@ -68,7 +72,7 @@ for ($index = 0; $index < $numberDiceToRoll; $index++) {
             <h1>
                 " . $index . ". You rolled a " . $randomNumberArray[$index] . "    
             </h1>";
-    display($message);
+    Calculator::display($message);
 }
 
 $numberOfSix = 0;
@@ -81,16 +85,4 @@ $message = "
       <h1>
           You rolled the six " . $numberOfSix . " times!
       </h1>";
-display($message);
-
-
-
-
-
-
-
-
-
-
-
-
+Calculator::display($message);

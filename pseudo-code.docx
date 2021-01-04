@@ -1,0 +1,33 @@
+﻿Anton Gorshkov, CTS5
+php assignment
+
+For many people, probability calculations are often difficult to understand. They think, for example, that if they have rolled a 6, the probability of rolling another 6 is lower. However, the probability is the same for every dice roll.
+To demonstrate this behaviour, a dice is to be simulated in a small PHP software project. The following tasks should be fulfilled by the application:
+a) The user should enter the number of times the dice will be rolled and press a submit button to start the application.
+b) The PHP Script checks for a valid user input between 1 and 1000.
+c) The entered value should be displayed.
+d) The result of each roll should be displayed.
+e) At the end, the number of times a six was rolled should also be displayed like this:
+
+We roll the dice 6 times
+
+1. You rolled a 2
+2. You rolled a 1
+3. You rolled a 2
+4. You rolled a 6
+5. You rolled a 3
+6. You rolled a 6
+
+You rolled the six 2 times!
+
+
+a) Describe step-by-step the procedure/workflow/pseudo code of your application before specifying any HTML/PHP source code.
+PSEUDO-CODE:
+numberDiceToRoll = Input();   
+if(not(numberDiceToRoll.between(1, 1000))) then throw Exception();
+display(numberDiceToRoll);
+for(index = 0; index < numberDiceToRoll; index++){
+	randomNumberArray[index] = random(1, 6);
+	display(randomNumberArray[index]);
+}
+display(messageByTheGivenPattern);
